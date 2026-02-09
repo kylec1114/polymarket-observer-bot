@@ -1,0 +1,28 @@
+name: Polymarket Observer
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # 每 15 分鐘自動跑一次（UTC）
+  workflow_dispatch:        # 你可以喺 GitHub 手動觸發
+
+jobs:
+  run-observer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Run observer script
+        run: npm start
