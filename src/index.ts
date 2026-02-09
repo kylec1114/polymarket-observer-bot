@@ -41,6 +41,7 @@ async function main() {
     console.log("Outcome 價格：");
     for (const o of market.outcomes) {
             console.log(`  - ${o}`);
+          }
 
   } else {
     console.log("呢個市場暫時冇 outcomes / 價格資料。");
