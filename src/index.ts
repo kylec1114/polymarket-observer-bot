@@ -40,11 +40,8 @@ async function main() {
   if (market.outcomes && market.outcomes.length > 0) {
     console.log("Outcome 價格：");
     for (const o of market.outcomes) {
-      const name = o.name || o.ticker || "unknown";
-      const price = o.price ?? "N/A";
-      const liq = o.liquidity ?? "N/A";
-      console.log(`- ${name}: price=${price}  liquidity=${liq}`);
-    }
+            console.log(`  - ${o}`);
+
   } else {
     console.log("呢個市場暫時冇 outcomes / 價格資料。");
   }
