@@ -12,7 +12,7 @@ async function main() {
   });
 
   // 2. filter 出 Bitcoin / BTC 相關市場
-  const btcMarkets = markets.data.filter((m: any) => {
+  const btcMarkets = (Array.isArray(markets) ? markets : []).filter((m: any) => {
     const title = (m.title || m.question || "").toLowerCase();
     const ticker = (m.ticker || "").toLowerCase();
     return (
