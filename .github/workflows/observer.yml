@@ -3,7 +3,7 @@ name: Polymarket Observer
 on:
   schedule:
     - cron: "*/15 * * * *"  # 每 15 分鐘自動跑一次（UTC）
-  workflow_dispatch:        # 你可以喺 GitHub 手動觸發
+  workflow_dispatch:         # 你可以喺 GitHub 手動觸發
 
 jobs:
   run-observer:
@@ -24,5 +24,7 @@ jobs:
       - name: Build TypeScript
         run: npm run build
 
-      - name: Run observer script
+      - name: Run observer script (MOCK MODE)
         run: npm start
+        env:
+          MOCK_MODE: "true"  # 改成 false 就會連真實 Polymarket API
